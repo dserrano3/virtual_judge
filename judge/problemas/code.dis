@@ -1,0 +1,6 @@
+var a = 44
+read a
+if(a == 2){
+	println "estoy dentro del if";
+}
+println a;;
