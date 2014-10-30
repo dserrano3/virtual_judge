@@ -1,7 +1,7 @@
 <?php
-$user = "discant";
-$password = "discant";
-$db = "juez_virtual";
+$user = "INSERT_YOUR_USER_HERE";     //CHANGE THIS LINE
+$password = "INSERT_YOUR_PASSWORD_HERE"; //CHANGE THIS LINE
+$db = "INSERT_YOUR_DATA_BASE_NAME_HERE"; //CHANGE THIS LINE
 
 $url_db = "127.0.0.1"; //Only change this if the DB is not local.
 
