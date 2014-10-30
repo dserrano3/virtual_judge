@@ -32,6 +32,7 @@ To install:<br>
 
 
 It is a work in progress so there are some things that will be changing pretty soon.<br>
+-i18n, it doesn't have much text but it is in spanish, so it would be nice to translate it at least to english.
 -An easy way to change the password.<br>
 -A completly different place for administrators.<br>
 -Using sessions so the users only have to login once.<br>
