@@ -16,7 +16,7 @@ while($row = mysqli_fetch_array($result)) {
   $array_puntos[$row['usuario']] = 0;
   $array_nombre[$row['usuario']] = $row['nombre'];
   $array_colegio[$row['usuario']] = $row['colegio'];
-  
+
 }
 
 $result = mysqli_query($con, "SELECT usuario, problema, fecha_maxima, id, fecha FROM usuario_problema, problema WHERE problema = id");
@@ -35,9 +35,9 @@ while($row = mysqli_fetch_array($result)) {
 for($i = 0; $i < count($array_usuarios); $i++){
 	for($j = 0 ; $j < count($array_usuarios) - 1; $j++){
 		if($array_puntos[$array_usuarios[$j]] < $array_puntos[$array_usuarios[$j+1]] ){
-			$auxil = $array_usuarios[$j];		
+			$auxil = $array_usuarios[$j];
 			 $array_usuarios[$j] =  $array_usuarios[$j+1];
-			 $array_usuarios[$j+1] = $auxil;	
+			 $array_usuarios[$j+1] = $auxil;
 
 		}
 	}
@@ -58,8 +58,8 @@ for($i = 0; $i < count($array_usuarios); $i++){
 <head>
 <title>Juez Virtual Discant</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="/../css/style.css" type="text/css" media="screen, projection, tv" />
-<link rel="stylesheet" href="/../css/style-print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen, projection, tv" />
+<link rel="stylesheet" href="/css/style-print.css" type="text/css" media="print" />
 </head>
 <body>
 <div id="wrapper">
@@ -90,11 +90,11 @@ for($i = 0; $i < count($array_usuarios); $i++){
       <a href="#skip-menu" class="hidden">Skip menu</a>
       <ul class="menu">
         <li><a href="/index.html" >Inicio</a></li>
-        <li><a href="/juez/upload_form.php">Enviar problema</a></li>
-        <li><a href="/juez/insertar_usuario.html" >Crear usuario</a></li>
-        <li><a href="/juez/puntajes.php" class="active">Tabla de posiciones</a></li>
-        <li><a href="/juez/insert_problem.html">Agregar problema</a></li>
-        <li class="last"><a href="/juez/mis_envios.html">Mis envios</a></li>
+        <li><a href="/judge/upload_form.php">Enviar problema</a></li>
+        <li><a href="/judge/insertar_usuario.html" >Crear usuario</a></li>
+        <li><a href="/judge/puntajes.php" class="active">Tabla de posiciones</a></li>
+        <li><a href="/judge/insert_problem.html">Agregar problema</a></li>
+        <li class="last"><a href="/judge/mis_envios.html">Mis envios</a></li>
       </ul>
     </div>
     <div id="skip-menu"></div>
@@ -119,8 +119,8 @@ for($i = 0; $i < count($array_usuarios); $i++){
 				?>
 
           </p>
-          
-          
+
+
         </div>
       </div>
     </div>

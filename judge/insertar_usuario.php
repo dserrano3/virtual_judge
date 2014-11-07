@@ -7,7 +7,7 @@ $usuario = $_POST["usuario"];
 $pass = sha1($_POST["pass"]);
 $colegio = $_POST["colegio"];
 
-  
+
   $sql = "INSERT INTO Usuario (nombre, usuario, password, colegio)
   VALUES ('$nombre', '$usuario','$pass', '$colegio')";
 
@@ -26,8 +26,8 @@ $retval = mysql_query( $sql );
 <head>
 <title>Juez Virtual Discant</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="/../css/style.css" type="text/css" media="screen, projection, tv" />
-<link rel="stylesheet" href="/../css/style-print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen, projection, tv" />
+<link rel="stylesheet" href="/css/style-print.css" type="text/css" media="print" />
 </head>
 <body>
 <div id="wrapper">
@@ -58,11 +58,11 @@ $retval = mysql_query( $sql );
       <a href="#skip-menu" class="hidden">Skip menu</a>
       <ul class="menu">
         <li><a href="/index.html">Inicio</a></li>
-        <li><a href="/juez/upload_form.php">Enviar problema</a></li>
-        <li><a href="/juez/insertar_usuario.html"  class="active" >Crear usuario</a></li>
-        <li><a href="/juez/puntajes.php">Tabla de posiciones</a></li>
-        <li><a href="/juez/insert_problem.html">Agregar problema</a></li>
-        <li class="last"><a href="/juez/mis_envios.html">Mis envios</a></li>
+        <li><a href="/judge/upload_form.php">Enviar problema</a></li>
+        <li><a href="/judge/insertar_usuario.html"  class="active" >Crear usuario</a></li>
+        <li><a href="/judge/puntajes.php">Tabla de posiciones</a></li>
+        <li><a href="/judge/insert_problem.html">Agregar problema</a></li>
+        <li class="last"><a href="/judge/mis_envios.html">Mis envios</a></li>
       </ul>
     </div>
     <div id="skip-menu"></div>
@@ -72,7 +72,7 @@ $retval = mysql_query( $sql );
         <div class="box-in">
           <h2>Crear Usuario</h2>
           <p>
-				
+
 
 					<?php
 
@@ -87,8 +87,8 @@ $retval = mysql_query( $sql );
 					?>
 
           </p>
-          
-          
+
+
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 <?php
-$user = "INSERT_YOUR_USER_HERE";     //CHANGE THIS LINE
-$password = "INSERT_YOUR_PASSWORD_HERE"; //CHANGE THIS LINE
-$db = "INSERT_YOUR_DATA_BASE_NAME_HERE"; //CHANGE THIS LINE
+$user = "virtual_judge";     //CHANGE THIS LINE
+$password = "virtual_judge"; //CHANGE THIS LINE
+$db = "virtual_judge"; //CHANGE THIS LINE
 
 $url_db = "127.0.0.1"; //Only change this if the DB is not local.
 
@@ -19,10 +19,10 @@ function connection_query(){
 	if (mysqli_connect_errno()) {
  		 echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
-	
+
 	//We return the connection.
 	return $con;
-	
+
 
 }
 
@@ -33,9 +33,9 @@ function connection_update(){
   {
 	die('Could not connect: ' . mysql_error());
   }
-  
+
   mysql_select_db($db)or die("cannot select DB");
-  
+
   if (mysqli_connect_errno()) {
 	echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
