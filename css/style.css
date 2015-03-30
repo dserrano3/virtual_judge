@@ -1,6 +1,44 @@
 .call-to-action {
-  font-size:45px;
+  font-size:20px;
+  color: #426E8A;
 }
-.call-to-action a{
-  color: #D9183B;
+
+.judge-header {
+    font-family: papyrus;
+    color: #fff;
+    font-size: 21px;
+    padding: 5px 15px;
+    text-align: center;
+    background-color:#426E8A;
+}
+
+ul {
+   border-bottom-left-radius: 15px;
+   border-top-left-radius: 15px;
+   float:left;
+   overflow:hidden;
+}
+
+/* tab color */
+.nav-pills>li>a {
+  color: #fff;
+  background-color: #426E8A;
+}
+
+/* active tab color */
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+  color: #fff;
+  background-color: #62A1CA;
+}
+
+/* hover tab color */
+.nav-pills>li>a:hover {
+  background-color: #62A1CA;
+}
+
+.icon-car {
+  background-image: url("../images/blacktocat.png");
+  background-position: center center;
+  height: 14px;
+  width: 14px;
 }
