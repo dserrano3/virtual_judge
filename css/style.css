@@ -42,3 +42,34 @@ ul {
   height: 14px;
   width: 14px;
 }
+
+.panel-heading div {
+	margin-top: -18px;
+	font-size: 15px;
+}
+.panel-heading div span{
+	margin-left:5px;
+}
+.panel-body{
+	display: none;
+}
+
+.progress {
+  background: rgba(255, 255, 255, 1);
+  border: 2px solid rgba(66, 110, 138, 0.6);
+  border-radius: 10px;
+  height: 25px;
+}
+
+.progress-bar-custom {
+  background: rgba(219, 131, 33, 1);
+}
+
+.panel-custom {
+  border: 1px solid #62A1CA;
+}
+
+.panel-custom > .panel-heading {
+  color: #fff;
+  background-color: #62A1CA;
+}
