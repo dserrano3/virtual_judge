@@ -147,11 +147,11 @@ for($i = 0; $i < count($array_usuarios); $i++){
 
           <table class="table table-hover" id="dev-table">
             <tr>
-              <th> # </th>
-              <th> Usuario </th>
-              <th> Nombre </th>
-              <th> Colegio </th>
-              <th> Puntos </th>
+              <th><font color="#DB8321"> # </font></th>
+              <th><font color="#DB8321"> Usuario </font></th>
+              <th><font color="#DB8321"> Nombre </font></th>
+              <th><font color="#DB8321"> Colegio </font></th>
+              <th><font color="#DB8321"> Puntos </font></th>
             </tr>
             <p>
       				<?php
