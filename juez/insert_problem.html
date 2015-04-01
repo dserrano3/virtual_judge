@@ -5,91 +5,138 @@
 <head>
 <title>Juez Virtual Discant</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="/../css/style.css" type="text/css" media="screen, projection, tv" />
-<link rel="stylesheet" href="/../css/style-print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="../css/bootstrap.min.css" />
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen, projection, tv" />
+<link rel="stylesheet" href="../css/style-print.css" type="text/css" media="print" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" src="../js/fileChooserFeed.js"></script>
 </head>
 <body>
-<div id="wrapper">
-  <div class="title">
-    <div class="title-top">
-      <div class="title-left">
-        <div class="title-right">
-          <div class="title-bottom">
-            <div class="title-top-left">
-              <div class="title-bottom-left">
-                <div class="title-top-right">
-                  <div class="title-bottom-right">
-                    <h1><a href="/">Juez Virtual Discant</a></h1>
-                    <p>Juez para el curso de colegios, Capítulo Javeriano ACM</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<header>
+  <div class="judge-header">
+      <h1>Juez Virtual <span>Discant</span></h1>
+      <p>Juez para el curso de colegios, Capítulo Javeriano ACM</p>
   </div>
-  <hr class="noscreen" />
-  <div class="content">
-    <div class="column-left">
-      <h3>MENU</h3>
-      <a href="#skip-menu" class="hidden">Skip menu</a>
-      <ul class="menu">
-        <li><a href="/index.html">Inicio</a></li>
-        <li><a href="/juez/upload_form.php">Enviar problema</a></li>
-        <li><a href="/juez/insertar_usuario.html" >Crear usuario</a></li>
-        <li><a href="/juez/puntajes.php">Tabla de posiciones</a></li>
-        <li><a href="/juez/insert_problem.html"  class="active">Agregar problema</a></li>
-        <li class="last"><a href="/juez/mis_envios.html">Mis envios</a></li>
-      </ul>
-    </div>
-    <div id="skip-menu"></div>
-    <div class="column-right">
-      <div class="box">
-        <div class="box-top"></div>
-        <div class="box-in">
-          <h2>Agregar Problema, solo administradores</h2>
-          <p>
-				
-				Solo administradores pueden agregar problemas.
-				
-				<form action="insert_problem.php" method="post" enctype="multipart/form-data">
 
-				<table>
-				<tr>
-				<td>Usuario:</td><td> <input type="text" name="usuario"></td>
-				</tr><tr>
-				<td>Contraseña:</td><td> <input type="password" name="pass"></td>
-				</tr><tr>
-				<td>Nombre problema:</td><td> <input type="text" name="nombre"></td>
-				</tr><tr>
-				<td>Descripción: </td><td><textarea rows="4" cols="50" name="descripcion">Descripción</textarea> </td>
-				</tr><tr>
-				<td>Fecha Máxima:</td><td> <input type="text" name="fecha">(YYYY-MM-DD)</td>
-				</tr><tr>	
-				<td>Lenguaje:</td><td> <input type="text" name="lenguaje">(dis/py)</td>
-				</tr><tr>
-				<td><label for="file">Códgio(.dis):</label></td>
-				<td><input type="file" name="uploadedfile" id="uploadedfile"></td>
-				</tr><tr>
-				<td><label for="file">Entrada(.in):</label></td>
-				<td><input type="file" name="filein" id="filein"></td>
-				</tr>
-				</table>
-				<br><br>
-				<input type="submit" name="submit" value="Submit">
-				</form>
-          </p>
-          
-          
-        </div>
+
+  <main class="container">
+    <div class="row">
+      <br/>
+      <div class="col-xs-12 col-sm-3">
+        <a href="#skip-menu" class="hidden">Skip menu</a>
+        <ul class="nav nav-pills nav-stacked">
+          <li>
+            <a href="/index.html">
+              <span class="glyphicon glyphicon-home"></span>
+                  Inicio
+            </a>
+          </li>
+          <li>
+            <a href="/judge/upload_form.php">
+              <span class="glyphicon glyphicon-send"></span>
+              Enviar problema
+            </a>
+          </li>
+          <li>
+            <a href="/judge/insertar_usuario.html" >
+              <span class="glyphicon glyphicon-user"></span>
+              Crear usuario
+            </a>
+          </li>
+          <li>
+            <a href="/judge/puntajes.php">
+              <span class="glyphicon glyphicon-stats"></span>
+              Tabla de posiciones
+            </a>
+          </li>
+          <li class="active">
+            <a href="/judge/insert_problem.html">
+              <span class="glyphicon glyphicon-plus-sign"></span>
+              Agregar problema
+            </a>
+          </li>
+          <li class="last">
+            <a href="/judge/mis_envios.html">
+              <span class="glyphicon glyphicon-transfer"></span>
+              Mis envios
+            </a>
+          </li>
+        </ul>
       </div>
+
+
+    <div id="skip-menu"></div>
+
+    <div class="col-xs-12 col-sm-8 col-md-5 col-md-offset-1 ">
+        <div class="well call-to-action">
+            <div class="well-body">
+                <h3 class="text-center">Agregar Problema</h3>
+                <h5 class="text-center"><font color="#DB8321">Solo administradores pueden agregar problemas.</font></h5>
+                <form action="mis_envios.php" method="post" enctype="multipart/form-data">
+                  <div class="form-group">
+                      <div class="input-group">
+                          <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                          <input type="text" class="form-control" placeholder="Usuario" name="usuario" />
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="input-group">
+                          <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                          <input type="password" class="form-control" placeholder="Contraseña" name="pass" />
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="input-group">
+                          <span class="input-group-addon"><span class="glyphicon glyphicon-bullhorn"></span></span>
+                          <input type="text" class="form-control" placeholder="Nombre Problema" name="nombre" />
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="input-group">
+                          <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
+                          <textarea class="form-control" placeholder="Descripción" rows="4" cols="50" name="descripcion" ></textarea>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="input-group">
+                          <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                          <input type="text" class="form-control" name="fecha"  placeholder="Fecha Máxima (YYYY-MM-DD)" />
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="input-group">
+                          <span class="input-group-addon"><span class="glyphicon glyphicon-comment"></span></span>
+                          <input type="text" class="form-control" name="lenguaje"  placeholder="Lenguaje (dis/py)" />
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon btn btn-default btn-file">
+                            <span class="glyphicon glyphicon-floppy-open" > Códgio(.dis) </span>
+                                <input type="file" name="uploadedfile" id="uploadedfile" multiple>
+
+                        </span>
+                        <input type="text" class="form-control" readonly>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon btn btn-default btn-file">
+                            <span class="glyphicon glyphicon-floppy-open" > Entrada(.in) </span>
+                                <input type="file" name="filein" id="filein" >
+
+                        </span>
+                        <input type="text" class="form-control" readonly>
+                    </div>
+                  </div>
+                  <input type="submit" name="submit" value="Enviar" class="btn btn-sm btn-default btn-block">
+                </form>
+            </div>
+
+        </div>
     </div>
     <div class="cleaner">&nbsp;</div>
-  </div>
-</div>
+  </main>
+</header>
 <div align=center>Juez creado por: Daniel Serrano, Lenguaje creado por Alfredo Santamaria y Daniel Serrano</div></body>
 </html>
-
-

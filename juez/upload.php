@@ -30,7 +30,7 @@ function comparar_resultados($array1, $array2){
 		return false;
 	}
 
-	
+
 	if(count($array_bueno2) != count($array_bueno1)) {
 		$mensaje = '<br> <table bgcolor="#FF0000"><tr><td> La respuesta tiene más o menos lineas de lo que debería</td></tr></table> <br>';
 		return false;
@@ -96,8 +96,8 @@ while($row = mysqli_fetch_array($result)) {
 <head>
 <title>Juez Virtual Discant</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="/../css/style.css" type="text/css" media="screen, projection, tv" />
-<link rel="stylesheet" href="/../css/style-print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen, projection, tv" />
+<link rel="stylesheet" href="/css/style-print.css" type="text/css" media="print" />
 </head>
 <body>
 <div id="wrapper">
@@ -128,11 +128,11 @@ while($row = mysqli_fetch_array($result)) {
       <a href="#skip-menu" class="hidden">Skip menu</a>
       <ul class="menu">
         <li><a href="/index.html" >Inicio</a></li>
-        <li><a href="/juez/upload_form.php" class="active">Enviar problema</a></li>
-        <li><a href="/juez/insertar_usuario.html" >Crear usuario</a></li>
-        <li><a href="/juez/puntajes.php">Tabla de posiciones</a></li>
-        <li><a href="/juez/insert_problem.html">Agregar problema</a></li>
-        <li class="last"><a href="/juez/mis_envios.html">Mis envios</a></li>
+        <li><a href="/judge/upload_form.php" class="active">Enviar problema</a></li>
+        <li><a href="/judge/insertar_usuario.html" >Crear usuario</a></li>
+        <li><a href="/judge/puntajes.php">Tabla de posiciones</a></li>
+        <li><a href="/judge/insert_problem.html">Agregar problema</a></li>
+        <li class="last"><a href="/judge/mis_envios.html">Mis envios</a></li>
       </ul>
     </div>
     <div id="skip-menu"></div>
@@ -150,11 +150,11 @@ while($row = mysqli_fetch_array($result)) {
 
 					//Subir el archivo al servidor, todos con el mismo nombre, para que no se llene.
 
-					//$target_path = $target_path . basename( $_FILES['uploadedfile']['name']); 
-					$target_path = $target_path . 'code.dis'; 
+					//$target_path = $target_path . basename( $_FILES['uploadedfile']['name']);
+					$target_path = $target_path . 'code.dis';
 
 					if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
-						echo "El archivo ".  basename( $_FILES['uploadedfile']['name']). 
+						echo "El archivo ".  basename( $_FILES['uploadedfile']['name']).
 						" ha sido subido al servidor con éxito<br><br>";
 					} else{
 						die ('Hubo un problema subiendo el archivo al servidor, por favor intenta de nuevo.');
@@ -183,10 +183,10 @@ while($row = mysqli_fetch_array($result)) {
 						exec('python "uploads/code.dis" <' . '"' . $entrada . '" & sleep 4 ; kill $!', $respuestaUsuario);
 						exec('python "' . $codigo_bueno . '" <' . '"' . $entrada . '"', $respuestaCorrecta);
 					}
-					
-					
+
+
 					echo "<br><br>";
-					//print_r($respuestaCorrecta); 
+					//print_r($respuestaCorrecta);
 
 					$resultado = comparar_resultados($respuestaCorrecta, $respuestaUsuario);
 
@@ -206,8 +206,8 @@ while($row = mysqli_fetch_array($result)) {
 						}else{
 							 //Lo actualiza en la base de datos.
 							$con = connection_update();
-							 
-							 
+
+
 							 $fecha = date('Y-m-d');
 							 $sql = "INSERT INTO usuario_problema (usuario, problema, fecha)
 							 VALUES ('$usuario', '$problema', now())";
@@ -237,8 +237,8 @@ while($row = mysqli_fetch_array($result)) {
 					?>
 
           </p>
-          
-          
+
+
         </div>
       </div>
     </div>

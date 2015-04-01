@@ -7,8 +7,8 @@
 <head>
 <title>Juez Virtual Discant</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="/../css/style.css" type="text/css" media="screen, projection, tv" />
-<link rel="stylesheet" href="/../css/style-print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen, projection, tv" />
+<link rel="stylesheet" href="/css/style-print.css" type="text/css" media="print" />
 </head>
 <body>
 <div id="wrapper">
@@ -39,11 +39,11 @@
       <a href="#skip-menu" class="hidden">Skip menu</a>
       <ul class="menu">
         <li><a href="/index.html" >Inicio</a></li>
-        <li><a href="/juez/upload_form.php">Enviar problema</a></li>
-        <li><a href="/juez/insertar_usuario.html" >Crear usuario</a></li>
-        <li><a href="/juez/puntajes.php">Tabla de posiciones</a></li>
-        <li><a href="/juez/insert_problem.html">Agregar problema</a></li>
-        <li class="last"><a href="/juez/mis_envios.html" class="active">Mis envios</a></li>
+        <li><a href="/judge/upload_form.php">Enviar problema</a></li>
+        <li><a href="/judge/insertar_usuario.html" >Crear usuario</a></li>
+        <li><a href="/judge/puntajes.php">Tabla de posiciones</a></li>
+        <li><a href="/judge/insert_problem.html">Agregar problema</a></li>
+        <li class="last"><a href="/judge/mis_envios.html" class="active">Mis envios</a></li>
       </ul>
     </div>
     <div id="skip-menu"></div>
@@ -56,8 +56,8 @@
 				<?php
 					//Conectamos a base de datos.
 					$con = connection_query();
-					
-					
+
+
 					$usuario = $_POST["usuario"];
 					$pass = sha1($_POST["pass"]);
 
@@ -91,7 +91,7 @@
 						$puntos = 5;
 					  }
 					  echo '<tr><td>' . $row['nombre'] . '</td>' . '<td>' . $row['fecha'] . '</td><td>' . $row['maxi']  . '</td><td>' . $puntos . '</td></tr>';
-					  
+
 					  $puntos_total += $puntos;
 					}
 
@@ -103,8 +103,8 @@
 					?>
 
           </p>
-          
-          
+
+
         </div>
       </div>
     </div>
