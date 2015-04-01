@@ -1,84 +1,97 @@
 
-
-
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
 <head>
 <title>Juez Virtual Discant</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen, projection, tv" />
-<link rel="stylesheet" href="/css/style-print.css" type="text/css" media="print" />
+<link href='http://fonts.googleapis.com/css?family=Fira+Sans:400,500italic,700italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../css/bootstrap.min.css" />
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen, projection, tv" />
+<link rel="stylesheet" href="../css/style-print.css" type="text/css" media="print" />
 </head>
 <body>
-<div id="wrapper">
-  <div class="title">
-    <div class="title-top">
-      <div class="title-left">
-        <div class="title-right">
-          <div class="title-bottom">
-            <div class="title-top-left">
-              <div class="title-bottom-left">
-                <div class="title-top-right">
-                  <div class="title-bottom-right">
-                    <h1><a href="/">Juez Virtual Discant</a></h1>
-                    <p>Juez para el curso de colegios, Capítulo Javeriano ACM</p>
-                  </div>
+  <header class="lp-header" id="header">
+    <div class="judge-header">
+        <h1>Juez Virtual <span>Discant</span></h1>
+        <p>Juez para el curso de colegios, Capítulo Javeriano ACM</p>
+    </div>
+
+    <main class="container">
+      <div class="row">
+        <br />
+        <div class="col-xs-12 col-sm-3 col-md-3">
+          <a href="#skip-menu" class="hidden">Skip menu</a>
+          <ul class="nav nav-pills nav-stacked">
+            <li>
+              <a href="/index.html">
+                <span class="glyphicon glyphicon-home"></span>
+                    Inicio
+              </a>
+            </li>
+            <li>
+              <a href="/judge/upload_form.php">
+                <span class="glyphicon glyphicon-send"></span>
+                Enviar problema
+              </a>
+            </li>
+            <li>
+              <a href="/judge/insertar_usuario.html" >
+                <span class="glyphicon glyphicon-user"></span>
+                Crear usuario
+              </a>
+            </li>
+            <li>
+              <a href="/judge/puntajes.php">
+                <span class="glyphicon glyphicon-stats"></span>
+                Tabla de posiciones
+              </a>
+            </li>
+            <li>
+              <a href="/judge/insert_problem.html">
+                <span class="glyphicon glyphicon-plus-sign"></span>
+                Agregar problema
+              </a>
+            </li>
+            <li class="last active">
+              <a href="/judge/mis_envios.html">
+                <span class="glyphicon glyphicon-transfer"></span>
+                Mis envios
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      <div id="skip-menu"></div>
+        <div class="col-xs-12 col-sm-8 col-md-4 col-md-offset-1 ">
+            <div class="well call-to-action">
+                <div class="well-body">
+                    <h3 class="text-center">Mis Envíos</h3>
+                    <h5 class="text-center">
+                      <font color="#DB8321">
+                        Para conocer sus envíos, por favor ingrese sus credenciales.
+                      </font>
+                    </h5>
+                    <form action="mis_envios.php" method="post" enctype="multipart/form-data">
+                      <div class="form-group">
+                          <div class="input-group">
+                              <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                              <input type="text" class="form-control" placeholder="Usuario" name="usuario" />
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="input-group">
+                              <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                              <input type="password" class="form-control" placeholder="Contraseña" name="pass" />
+                          </div>
+                      </div>
+                      <input type="submit" name="submit" value="Enviar" class="btn btn-sm btn-default btn-block">
+                    </form>
                 </div>
-              </div>
+
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <hr class="noscreen" />
-  <div class="content">
-    <div class="column-left">
-      <h3>MENU</h3>
-      <a href="#skip-menu" class="hidden">Skip menu</a>
-      <ul class="menu">
-        <li><a href="/index.html" >Inicio</a></li>
-        <li><a href="/judge/upload_form.php">Enviar problema</a></li>
-        <li><a href="/judge/insertar_usuario.html" >Crear usuario</a></li>
-        <li><a href="/judge/puntajes.php">Tabla de posiciones</a></li>
-        <li><a href="/judge/insert_problem.html">Agregar problema</a></li>
-        <li class="last"><a href="/judge/mis_envios.html" class="active">Mis envios</a></li>
-      </ul>
-    </div>
-    <div id="skip-menu"></div>
-    <div class="column-right">
-      <div class="box">
-        <div class="box-top"></div>
-        <div class="box-in">
-          <h2>Mis Envíos</h2>
-          <p>
+    </main>
+  </header>
 
-					Para conocer sus envíos, por favor ingrese sus credenciales.
-
-					<form action="mis_envios.php" method="post"
-					enctype="multipart/form-data">
-					<table>
-					<tr>
-					<td>Usuario:</td><td> <input type="text" name="usuario"></td>
-					</tr><tr>
-					<td>Contraseña:</td><td> <input type="password" name="pass"></td>
-					</tr>
-					</table>
-					<br><br>
-					<center><input type="submit" name="submit" value="Enviar"></center>
-					</form>
-
-
-          </p>
-
-
-        </div>
-      </div>
-    </div>
-    <div class="cleaner">&nbsp;</div>
-  </div>
-</div>
 <div align=center>Juez creado por: Daniel Serrano, Lenguaje creado por Alfredo Santamaria y Daniel Serrano</div></body>
 </html>

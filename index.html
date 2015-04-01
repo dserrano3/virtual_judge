@@ -15,46 +15,94 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href='http://fonts.googleapis.com/css?family=Fira+Sans:400,500italic,700italic' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen, projection, tv" />
-<link rel="stylesheet" href="/css/style-print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection, tv" />
+<link rel="stylesheet" href="css/style-print.css" type="text/css" media="print" />
 </head>
 <body>
   <header class="lp-header" id="header">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <h1><a href="/">Juez Virtual <span>Discant</span></a></h1>
-          <p>Juez para el curso de colegios, Capítulo Javeriano ACM</p>
-        </div>
-      </div>
+    <div class="judge-header">
+        <h1>Juez Virtual <span>Discant</span></h1>
+        <p>Juez para el curso de colegios, Capítulo Javeriano ACM</p>
     </div>
+
     <main class="container">
       <div class="row">
         <br />
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-xs-12 col-sm-3">
           <a href="#skip-menu" class="hidden">Skip menu</a>
           <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="/index.html" class="active">Inicio</a></li>
-            <li><a href="/judge/upload_form.php">Enviar problema</a></li>
-            <li><a href="/judge/insertar_usuario.html" >Crear usuario</a></li>
-            <li><a href="/judge/puntajes.php">Tabla de posiciones</a></li>
-            <li><a href="/judge/insert_problem.html">Agregar problema</a></li>
-            <li class="last"><a href="/judge/mis_envios.html">Mis envios</a></li>
+            <li class="active">
+              <a href="/index.html">
+                <span class="glyphicon glyphicon-home"></span>
+                    Inicio
+              </a>
+            </li>
+            <li>
+              <a href="/judge/upload_form.php">
+                <span class="glyphicon glyphicon-send"></span>
+                Enviar problema
+              </a>
+            </li>
+            <li>
+              <a href="/judge/insertar_usuario.html" >
+                <span class="glyphicon glyphicon-user"></span>
+                Crear usuario
+              </a>
+            </li>
+            <li>
+              <a href="/judge/puntajes.php">
+                <span class="glyphicon glyphicon-stats"></span>
+                Tabla de posiciones
+              </a>
+            </li>
+            <li>
+              <a href="/judge/insert_problem.html">
+                <span class="glyphicon glyphicon-plus-sign"></span>
+                Agregar problema
+              </a>
+            </li>
+            <li class="last">
+              <a href="/judge/mis_envios.html">
+                <span class="glyphicon glyphicon-transfer"></span>
+                Mis envios
+              </a>
+            </li>
           </ul>
         </div>
-
-        <div class="col-xs-12 col-sm-8 call-to-action">
-          <ol>
-            <li>
-              <u><a href="http://dserrano3.github.io/Discant/" target="_blank">Descarga</a></u> Discant
-           ahora y comienza a aprender a programar
-            </li>
-            <li>
-              <u><a href="/judge/insertar_usuario.html">Regístrate</a></u> y envía tu primer problema
-            </li>
-          </ol>
+        <div class="col-xs-12 col-sm-7 well well-lg call-to-action">
+          <div class="col-sm-8">
+            <h3 class="media-heading text-uppercase reviews">Descarga Discant </h3>
+            <p class="media-comment">
+              <font color="#DB8321"> ¡Comienza a aprender a programar! </font>
+            </p>
+          </div>
+          <div class="btn-group" role="group" aria-label="...">
+            <a class="btn btn-default btn-circle text-uppercase" href="http://dserrano3.github.io/Discant/" target="_blank">
+              <span class="glyphicon glyphicon-link"></span>
+              Discant
+            </a>
+            <a class="btn btn-default text-uppercase" href="https://github.com/dserrano3/spanish_programming_language" target="_blank">
+              <!-- icon not working <i class="icon icon-blacktocat"></i> -->
+              Github
+            </a>
+          </div>
         </div>
+        <div class="col-xs-12 col-sm-7 well well-lg call-to-action">
+          <div class="col-sm-8">
+            <h3 class="media-heading text-uppercase reviews">Regístrate</h3>
+            <p class="media-comment">
+              <font color="#DB8321"> Y envía tu primer problema </font>
+            </p>
+          </div>
+          <div>
+            <a class="btn btn-default btn-circle text-uppercase" href="/judge/insertar_usuario.html">
+              <span class="glyphicon glyphicon-user"></span>
+              Regístrate ahora
+            </a>
+          </div>
+        </div>
+
       </div>
     </main>
   </header>
