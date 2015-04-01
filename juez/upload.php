@@ -217,6 +217,17 @@ while($row = mysqli_fetch_array($result)) {
 							{
 							  die('Could not enter data: ' . mysql_error());
 							}
+							//$ar = addslashes (file_get_contents($_FILES['uploadedfile']['tmp_name']));
+							$ar = file_get_contents("uploads/code.dis");
+							$sql = "INSERT INTO archivo_solucion(archivo, usuario) VALUES('$ar', '$usuario')";
+							$retval = mysql_query( $sql );
+							if(! $retval )
+							{
+							  die('Could not enter data of file: ' . mysql_error());
+							}else{
+								echo 'Lo he insertado';
+							}
+							
 							echo "<br>Felicitaciones has hecho un problema más, has ganado puntos.<br>";
 
 						}
