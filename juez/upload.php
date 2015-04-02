@@ -22,30 +22,30 @@ function comparar_resultados($array1, $array2){
 	//Si son diferentes se puede devolver false, no se hace para saber
 	//donde esta la diferencia y poder mostrarla.
 	if(count($array_bueno1) == 0){
-		$mensaje = '<br> <table bgcolor="#FF0000"><tr><td> Hay un problema con este problema, contacte al administrador </td></tr></table><br>';
+		$mensaje = '<table style="background-color: #FF0000;"><tr><td> Hay un problema con este problema, contacte al administrador </td></tr></table>';
 		return false;
 	}
 	if(count($array_bueno2) == 0){
-		$mensaje = '<br> <table bgcolor="#FF0000"><tr><td>Tu codigo no imprime nada, verificalo </td></tr></table><br>';
+		$mensaje = '<table style="background-color: #FF0000;"><tr><td>Tu codigo no imprime nada, verificalo </td></tr></table>';
 		return false;
 	}
 
 
 	if(count($array_bueno2) != count($array_bueno1)) {
-		$mensaje = '<br> <table bgcolor="#FF0000"><tr><td> La respuesta tiene más o menos lineas de lo que debería</td></tr></table> <br>';
+		$mensaje = '<table style="background-color: #FF0000;"><tr><td> La respuesta tiene más o menos lineas de lo que debería</td></tr></table>';
 		return false;
 	}
 	for($i = 0; $i < count($array_bueno1); $i ++)
 	{
 		if($array_bueno1[$i] != $array_bueno2[$i] ){
-			$mensaje = '<br> <table bgcolor="#FF0000"><tr><td> En alguna linea se está imprimiendo ';
+			$mensaje = '<table style="background-color: #FF0000;"><tr><td> En alguna linea se está imprimiendo ';
 			$mensaje .= $array_bueno2[$i] . " ";
 			$mensaje .= "y deberia ser ";
-			$mensaje .= $array_bueno1[$i] . " </td> </tr></table> <br>";
+			$mensaje .= $array_bueno1[$i] . " </td> </tr></table>";
 			return false;
 		}
 	}
-	$mensaje = '<br> <br> <table bgcolor="#00FF00" ><tr><td>Muy bien =), la solución del problema es correcta </td></tr></table> <br>';
+	$mensaje = ' <table style="background-color: #00FF00;" ><tr><td>Muy bien =), la solución del problema es correcta </td></tr></table>';
 	return true;
 }
 
@@ -89,64 +89,18 @@ while($row = mysqli_fetch_array($result)) {
 ?>
 
 
+<?php 
+$html = file_get_contents('header.html');
+echo $html;
 
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
-<head>
-<title>Juez Virtual Discant</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen, projection, tv" />
-<link rel="stylesheet" href="/css/style-print.css" type="text/css" media="print" />
-</head>
-<body>
-<div id="wrapper">
-  <div class="title">
-    <div class="title-top">
-      <div class="title-left">
-        <div class="title-right">
-          <div class="title-bottom">
-            <div class="title-top-left">
-              <div class="title-bottom-left">
-                <div class="title-top-right">
-                  <div class="title-bottom-right">
-                    <h1><a href="/">Juez Virtual Discant</a></h1>
-                    <p>Juez para el curso de colegios, Capítulo Javeriano ACM</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <hr class="noscreen" />
-  <div class="content">
-    <div class="column-left">
-      <h3>MENU</h3>
-      <a href="#skip-menu" class="hidden">Skip menu</a>
-      <ul class="menu">
-        <li><a href="/index.html" >Inicio</a></li>
-        <li><a href="/judge/upload_form.php" class="active">Enviar problema</a></li>
-        <li><a href="/judge/insertar_usuario.html" >Crear usuario</a></li>
-        <li><a href="/judge/puntajes.php">Tabla de posiciones</a></li>
-        <li><a href="/judge/insert_problem.html">Agregar problema</a></li>
-        <li class="last"><a href="/judge/mis_envios.html">Mis envios</a></li>
-      </ul>
-    </div>
-    <div id="skip-menu"></div>
-    <div class="column-right">
-      <div class="box">
-        <div class="box-top"></div>
-        <div class="box-in">
+?>
           <h2>Resultados</h2>
           <p>
 					<?php
 					if(!$entro){
 						die('El usuario o la contraseña son incorrectos ');
 					}
-					echo "<br>Está intentando resolver el problema: " . $problema_nombre . '<br><br>';
+					echo "<br>Está intentando resolver el problema: " . $problema_nombre . '<br>';
 
 					//Subir el archivo al servidor, todos con el mismo nombre, para que no se llene.
 
@@ -155,7 +109,7 @@ while($row = mysqli_fetch_array($result)) {
 
 					if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
 						echo "El archivo ".  basename( $_FILES['uploadedfile']['name']).
-						" ha sido subido al servidor con éxito<br><br>";
+						" ha sido subido al servidor con éxito<br>";
 					} else{
 						die ('Hubo un problema subiendo el archivo al servidor, por favor intenta de nuevo.');
 					}
@@ -185,7 +139,7 @@ while($row = mysqli_fetch_array($result)) {
 					}
 
 
-					echo "<br><br>";
+					
 					//print_r($respuestaCorrecta);
 
 					$resultado = comparar_resultados($respuestaCorrecta, $respuestaUsuario);
@@ -202,7 +156,7 @@ while($row = mysqli_fetch_array($result)) {
 						}
 						mysqli_close($con);
 						if($entro){
-							echo "<br>Ud ya habia completado este problema, no hay puntos<br>";
+							echo "<p>Ud ya habia completado este problema, no hay puntos</p>";
 						}else{
 							 //Lo actualiza en la base de datos.
 							$con = connection_update();
@@ -228,7 +182,7 @@ while($row = mysqli_fetch_array($result)) {
 								echo 'Lo he insertado';
 							}
 							
-							echo "<br>Felicitaciones has hecho un problema más, has ganado puntos.<br>";
+							echo "<p>Felicitaciones has hecho un problema más, has ganado puntos.</p>";
 
 						}
 

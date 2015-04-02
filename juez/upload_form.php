@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="../js/fileChooserFeed.js"></script>
 	<script type="text/javascript" src="../js/minusIconAnim.js"></script>
 </head>
-<body>
+<body> 
 	<header class="lp-header" id="header">
 		<div class="judge-header">
 				<h1>Juez Virtual <span>Discant</span></h1>
@@ -35,31 +35,31 @@
 	            </a>
 	          </li>
 	          <li class="active">
-	            <a href="/judge/upload_form.php">
+	            <a href="/juez/upload_form.php">
 	              <span class="glyphicon glyphicon-send"></span>
 	              Enviar problema
 	            </a>
 	          </li>
 	          <li>
-	            <a href="/judge/insertar_usuario.html" >
+	            <a href="/juez/insertar_usuario.html" >
 	              <span class="glyphicon glyphicon-user"></span>
 	              Crear usuario
 	            </a>
 	          </li>
 	          <li>
-	            <a href="/judge/puntajes.php">
+	            <a href="/juez/puntajes.php">
 	              <span class="glyphicon glyphicon-stats"></span>
 	              Tabla de posiciones
 	            </a>
 	          </li>
 	          <li>
-	            <a href="/judge/insert_problem.html">
+	            <a href="/juez/insert_problem.html">
 	              <span class="glyphicon glyphicon-plus-sign"></span>
 	              Agregar problema
 	            </a>
 	          </li>
 	          <li class="last">
-	            <a href="/judge/mis_envios.html">
+	            <a href="/juez/mis_envios.html">
 	              <span class="glyphicon glyphicon-transfer"></span>
 	              Mis envios
 	            </a>
@@ -77,7 +77,7 @@
 												Para conocer sus envíos, por favor ingrese sus credenciales.
 											</font>
 										</h5>
-                    <form action="mis_envios.php" method="post" enctype="multipart/form-data">
+                    <form action="upload.php" method="post" enctype="multipart/form-data">
                       <div class="form-group">
                           <div class="input-group">
                               <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>

@@ -39,10 +39,10 @@
       <a href="#skip-menu" class="hidden">Skip menu</a>
       <ul class="menu">
         <li><a href="/index.html" >Inicio</a></li>
-        <li><a href="/judge/upload_form.php">Enviar problema</a></li>
-        <li><a href="/judge/insertar_usuario.html" >Crear usuario</a></li>
-        <li><a href="/judge/puntajes.php">Tabla de posiciones</a></li>
-        <li><a href="/judge/insert_problem.html">Agregar problema</a></li>
+        <li><a href="/juez/upload_form.php">Enviar problema</a></li>
+        <li><a href="/juez/insertar_usuario.html" >Crear usuario</a></li>
+        <li><a href="/juez/puntajes.php">Tabla de posiciones</a></li>
+        <li><a href="/juez/insert_problem.html">Agregar problema</a></li>
         <li class="last"><a href="/judge/mis_envios.html" class="active">Mis envios</a></li>
       </ul>
     </div>

@@ -15,61 +15,11 @@ $retval = mysql_query( $sql );
 ?>
 
 
+<?php 
+$html = file_get_contents('header.html');
+echo $html;
 
-
-
-
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
-<head>
-<title>Juez Virtual Discant</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen, projection, tv" />
-<link rel="stylesheet" href="/css/style-print.css" type="text/css" media="print" />
-</head>
-<body>
-<div id="wrapper">
-  <div class="title">
-    <div class="title-top">
-      <div class="title-left">
-        <div class="title-right">
-          <div class="title-bottom">
-            <div class="title-top-left">
-              <div class="title-bottom-left">
-                <div class="title-top-right">
-                  <div class="title-bottom-right">
-                    <h1><a href="/">Juez Virtual Discant</a></h1>
-                    <p>Juez para el curso de colegios, Capítulo Javeriano ACM</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <hr class="noscreen" />
-  <div class="content">
-    <div class="column-left">
-      <h3>MENU</h3>
-      <a href="#skip-menu" class="hidden">Skip menu</a>
-      <ul class="menu">
-        <li><a href="/index.html">Inicio</a></li>
-        <li><a href="/judge/upload_form.php">Enviar problema</a></li>
-        <li><a href="/judge/insertar_usuario.html"  class="active" >Crear usuario</a></li>
-        <li><a href="/judge/puntajes.php">Tabla de posiciones</a></li>
-        <li><a href="/judge/insert_problem.html">Agregar problema</a></li>
-        <li class="last"><a href="/judge/mis_envios.html">Mis envios</a></li>
-      </ul>
-    </div>
-    <div id="skip-menu"></div>
-    <div class="column-right">
-      <div class="box">
-        <div class="box-top"></div>
-        <div class="box-in">
+?>
           <h2>Crear Usuario</h2>
           <p>
 

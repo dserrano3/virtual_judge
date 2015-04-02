@@ -8,6 +8,11 @@ $array_puntos = array();
 $array_nombre = array();
 $array_colegio = array();
 
+//Este es para la barra de colegios.
+$array_colegios = array();
+$cuantos_colegio = array();
+$puntos_colegio = array();
+
 $result = mysqli_query($con, "SELECT nombre, usuario, colegio FROM Usuario");
 
 
@@ -16,7 +21,12 @@ while($row = mysqli_fetch_array($result)) {
   $array_puntos[$row['usuario']] = 0;
   $array_nombre[$row['usuario']] = $row['nombre'];
   $array_colegio[$row['usuario']] = $row['colegio'];
-
+  
+  //Barra de colegios
+ if(!in_array ($row['colegio'], $array_colegios))
+	array_push($array_colegios, $row['colegio']);
+  $cuantos_colegio[$row['colegio']] += 1;
+  $puntos_colegio[$row['colegio']] = 0;
 }
 
 $result = mysqli_query($con, "SELECT usuario, problema, fecha_maxima, id, fecha FROM usuario_problema, problema WHERE problema = id");
@@ -30,6 +40,7 @@ while($row = mysqli_fetch_array($result)) {
 	$puntos = 5;
   }
   $array_puntos[$row['usuario']] = $array_puntos[$row['usuario']] + $puntos;
+  $puntos_colegio[$array_colegio[$row['usuario']]] += $puntos; 
 }
 
 for($i = 0; $i < count($array_usuarios); $i++){
@@ -41,81 +52,17 @@ for($i = 0; $i < count($array_usuarios); $i++){
 
 		}
 	}
-
-
-
 }
 
 
 
 ?>
 
+<?php 
+$html = file_get_contents('header.html');
+echo $html;
 
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
-<head>
-<title>Juez Virtual Discant</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href='http://fonts.googleapis.com/css?family=Fira+Sans:400,500italic,700italic' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="../css/bootstrap.min.css" />
-<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen, projection, tv" />
-<link rel="stylesheet" href="../css/style-print.css" type="text/css" media="print" />
-</head>
-<body>
-  <header class="lp-header" id="header">
-    <div class="judge-header">
-        <h1>Juez Virtual <span>Discant</span></h1>
-        <p>Juez para el curso de colegios, Capítulo Javeriano ACM</p>
-    </div>
-
-  <main class="container">
-    <div class="row">
-      <br />
-      <div class="col-xs-12 col-sm-3">
-        <a href="#skip-menu" class="hidden">Skip menu</a>
-        <ul class="nav nav-pills nav-stacked">
-          <li>
-            <a href="/index.html">
-              <span class="glyphicon glyphicon-home"></span>
-                  Inicio
-            </a>
-          </li>
-          <li>
-            <a href="/judge/upload_form.php">
-              <span class="glyphicon glyphicon-send"></span>
-              Enviar problema
-            </a>
-          </li>
-          <li>
-            <a href="/judge/insertar_usuario.html" >
-              <span class="glyphicon glyphicon-user"></span>
-              Crear usuario
-            </a>
-          </li>
-          <li class="active">
-            <a href="/judge/puntajes.php">
-              <span class="glyphicon glyphicon-stats"></span>
-              Tabla de posiciones
-            </a>
-          </li>
-          <li>
-            <a href="/judge/insert_problem.html">
-              <span class="glyphicon glyphicon-plus-sign"></span>
-              Agregar problema
-            </a>
-          </li>
-          <li class="last">
-            <a href="/judge/mis_envios.html">
-              <span class="glyphicon glyphicon-transfer"></span>
-              Mis envios
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div id="skip-menu"></div>
-
+?>
 
       <div class="col-xs-12 col-sm-8 col-md-8">
         Por cada problema enviado a tiempo, se otorgan 10 puntos,
@@ -123,22 +70,31 @@ for($i = 0; $i < count($array_usuarios); $i++){
         se otorgan 5 puntos.
         <br><br>
 
-        <div class="progress progress-striped">
-
-          <div class="progress-bar  progress-bar-custom" style="width: 40%">
-            Colgio 1
-          </div>
-        </div>
-        <div class="progress progress-striped">
-          <div class="progress-bar progress-bar-custom" style="width: 20%">
-            Colgio 2
-          </div>
-        </div>
-        <div class="progress progress-striped">
-          <div class="progress-bar progress-bar-custom" style="width: 60%">
-            Colgio n
-          </div>
-        </div>
+		<?php
+			//Calcular el maximo para el porcentaje.
+			$maxi = 0;
+			foreach ($array_colegios as $val)
+			{
+				if(($puntos_colegio[$val] / $cuantos_colegio[$val]) > $maxi){
+					$maxi = ($puntos_colegio[$val] / $cuantos_colegio[$val]);
+				}
+			}
+			
+			foreach ($array_colegios as $val)
+			{
+				if($puntos_colegio[$val] == 0)continue;
+				
+				$ancho = (($puntos_colegio[$val] / $cuantos_colegio[$val]) * 100) / $maxi;
+				//echo 'nombre: ' . $val . ' cuantos: ' . $cuantos_colegio[$val] . ' puntos: ' . $puntos_colegio[$val] . '<br>';
+				echo '<div class="progress progress-striped">';
+				echo '<div class="progress-bar  progress-bar-custom" style="width: ' . $ancho . '%">';
+				echo  $val ;
+			    echo '</div>';
+				echo '</div>';
+				
+			}
+		
+		?>
 
         <div class="panel panel-custom filterable">
           <div class="panel-heading">
